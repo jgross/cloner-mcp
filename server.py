@@ -148,6 +148,35 @@ Forecast: {period['detailedForecast']}
     return "\n---\n".join(forecasts)
 
 
+@mcp.tool()
+async def plan_cloning_experiment(gene: str, vector: str, host: str) -> str:
+    """Plan a basic molecular cloning experiment.
+
+    Generates a simple step-by-step protocol for cloning a gene into a
+    plasmid vector and transforming it into a chosen host strain.
+
+    Args:
+        gene: Name or identifier of the gene to clone.
+        vector: The plasmid vector to receive the insert.
+        host: Bacterial strain used for transformation (for example ``E. coli``).
+
+    Returns:
+        A multiline string describing each major step in the cloning workflow.
+    """
+    steps = [
+        f"1. Design primers for {gene} with suitable restriction sites.",
+        f"2. PCR amplify {gene} using the designed primers.",
+        f"3. Digest the PCR product and {vector} with compatible enzymes.",
+        "4. Purify digested DNA fragments.",
+        f"5. Ligate the digested {gene} fragment into {vector}.",
+        f"6. Transform the ligation mix into {host}.",
+        "7. Select transformants on the appropriate antibiotic plates.",
+        "8. Screen colonies via PCR or restriction digest to confirm insertion.",
+        "9. Sequence positive clones to verify the correct construct.",
+    ]
+    return "\n".join(steps)
+
+
 def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlette:
     """Create a Starlette application that can serve the provided MCP server with SSE.
     

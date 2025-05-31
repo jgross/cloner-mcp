@@ -11,6 +11,7 @@ This template provides a streamlined foundation for building Model Context Proto
 - Ready-to-use MCP server implementation
 - Configurable transport modes (stdio, SSE)
 - Example weather service integration (NWS API)
+- Basic molecular cloning experiment planning tool
 - Clean, well-documented code structure
 - Minimal dependencies
 - **Embedded MCP specifications and documentation** for improved AI tool understanding
@@ -114,7 +115,7 @@ To create your own MCP tools:
 
 ## Project Structure
 
-- `server.py`: Main MCP server implementation with example weather tools
+- `server.py`: Main MCP server implementation with weather and cloning tools
 - `main.py`: Simple entry point for custom code
 - `protocals/`: Documentation and example protocols
   - `mcp.md`: Complete MCP specification (~7000 lines)
